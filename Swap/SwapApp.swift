@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct SwapApp: App {
+struct QuizApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(sentence: "This is a my money.", word: "money")
         }
     }
 }
