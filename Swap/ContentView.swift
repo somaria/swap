@@ -4,7 +4,7 @@ struct ContentView: View {
     let sentence: String
     let word: String
     @State private var displayedSentence: String
-    @State private var isShowingCorrect = false
+   @State private var isShowingCorrect: Bool
     @State private var misspelledWord: String
 
     init(sentence: String, word: String) {
@@ -13,13 +13,15 @@ struct ContentView: View {
         let misspelled = ContentView.createMisspelledWord(from: word)
         self._misspelledWord = State(initialValue: misspelled)
         self._displayedSentence = State(initialValue: sentence.replacingOccurrences(of: word, with: misspelled))
+       self.isShowingCorrect = Bool.random()
     }
 
     var body: some View {
         VStack {
             highlightedText(isShowingCorrect ? sentence : displayedSentence, word: isShowingCorrect ? word : misspelledWord)
+                .monospaced()
                 .padding()
-                .font(.largeTitle)
+                .font(.title)
                 .onTapGesture {
                     isShowingCorrect.toggle()
                 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct QuizApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(sentence: "This is a my money.", word: "money")
+            ContentView(sentence: "This is my money.", word: "money")
         }
     }
 }
